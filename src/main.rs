@@ -69,7 +69,7 @@ fn app() -> Html {
     let on_submit = {
         let digits = digits.clone();
         let user_digits = user_digits.clone();
-        let err_msg = err_msg.clone();
+        let err_msg: UseStateHandle<String> = err_msg.clone();
         let form_validation = Regex::new(r"[^01]+").unwrap();
         
         Callback::from(move |e: MouseEvent| {
@@ -88,21 +88,32 @@ fn app() -> Html {
     html! {
     <>
         <h1>{ "Two's Complement Visualizer" }</h1>
-        <label for="binary_input">{ "Enter your binary number!" }</label>
+        <label for="binary_input">{ "Enter your binary number: " }</label>
         <input
             type="text"
             id="binary_input"
-            title="only inputs 0s and 1s (binary number)"
             oninput={on_user_digit_input}
             name="binary_input"
             required=true
             minlength="1"
             maxlength="8"
-            pattern="[0-1]*"
-            size="10" />
+            size="10"
+            value={user_digits.to_string()}/>
         <input type="button" value="Submit" onclick={on_submit}/>
-        <p>{ err_msg.to_string() } </p>
-        <NumberDisplay digits={digits.to_string()} />
+        {
+            if !err_msg.to_string().is_empty() {
+                html! {
+                <div class="warn-panel">
+                    <p>{ err_msg.to_string() } </p>
+                </div>
+                }
+            } else { 
+                html! {
+                <NumberDisplay digits={digits.to_string()} />
+            }}
+        }
+
+        
     </>
     }
 }

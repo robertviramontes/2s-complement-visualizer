@@ -1,0 +1,14 @@
+body {
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+.warn-panel {
+    margin: 1px;
+    padding: 0.2em;
+    width: fit-content;
+    block-size: fit-content;
+
+    background: #ffb3b3;
+    border: 1px solid #ff0000;
+}
