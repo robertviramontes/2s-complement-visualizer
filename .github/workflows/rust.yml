@@ -20,7 +20,7 @@ jobs:
       with:
         version: 'latest'
     - name: Build
-      run: rustup target add wasm32-unknown-unknown && trunk build --release
+      run: rustup target add wasm32-unknown-unknown && trunk build --release --public-url="$PUBLIC_URL"
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
