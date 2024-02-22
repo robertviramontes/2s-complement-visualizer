@@ -20,7 +20,7 @@ jobs:
       with:
         version: 'latest'
     - name: Build
-      run: rustup target add wasm32-unknown-unknown && trunk build --release --public-url="$PUBLIC_URL"
+      run: rustup target add wasm32-unknown-unknown && trunk build --release --public-url="2s-complement-visualizer/"
       env:
         PUBLIC_URL: ${{ vars.PUBLIC_URL }}
       
