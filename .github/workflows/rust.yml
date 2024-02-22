@@ -21,6 +21,8 @@ jobs:
         version: 'latest'
     - name: Build
       run: rustup target add wasm32-unknown-unknown && trunk build --release --public-url="$PUBLIC_URL"
+      env:
+        PUBLIC_URL: ${{ vars.PUBLIC_URL }}
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
