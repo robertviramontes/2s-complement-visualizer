@@ -20,4 +20,4 @@ jobs:
       with:
         version: 'latest'
     - name: Build
-      run: trunk build --release
+      run: rustup target add wasm32-unknown-unknown && trunk build --release
