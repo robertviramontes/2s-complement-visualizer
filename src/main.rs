@@ -2,9 +2,6 @@ use web_sys::HtmlInputElement;
 use yew::prelude::*;
 use regex::Regex;
 
-use gloo_console::log;
-use wasm_bindgen::JsValue;
-
 #[derive(Properties, PartialEq)]
 struct NumberDisplayProps {
     digits: AttrValue,
@@ -33,11 +30,6 @@ fn number_display(NumberDisplayProps { digits }: &NumberDisplayProps) -> Html {
         let position_value = if position == digits.len() {-1*(base.pow((position as u32) - 1))} else {base.pow((position as u32) - 1)};
         if digit == '1' {position_value} else {0}
     }).reduce(|a, b| a+b);
-
-    match decimal_value {
-        Some(value) => log!("Computed", JsValue::from(value)),
-        None => log!("Nothing")
-    };
 
     html! {
     <>
@@ -82,7 +74,6 @@ fn app() -> Html {
         
         Callback::from(move |e: MouseEvent| {
             let is_input_invalid = form_validation.is_match(user_digits.as_str());
-            log!("Matching", JsValue::from(is_input_invalid));
             if is_input_invalid {
                 digits.set(String::new());
                 user_digits.set(String::new());
@@ -91,7 +82,6 @@ fn app() -> Html {
                 digits.set(user_digits.to_string());
                 err_msg.set(String::new())
             }
-            log!("", JsValue::from(e));
         })
     };
 

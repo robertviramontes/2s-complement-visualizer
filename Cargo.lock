@@ -1183,9 +1183,7 @@ dependencies = [
 name = "yew-tutorial"
 version = "0.1.0"
 dependencies = [
- "gloo-console 0.3.0",
  "regex",
- "wasm-bindgen",
  "web-sys",
  "yew",
 ]
