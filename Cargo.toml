@@ -1,5 +1,5 @@
 [package]
-name = "yew-tutorial"
+name = "2s-complement-visualizer"
 version = "0.1.0"
 edition = "2021"
 
