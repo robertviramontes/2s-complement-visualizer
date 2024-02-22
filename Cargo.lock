@@ -1040,6 +1040,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "twos-complement-visualizer"
+version = "0.1.0"
+dependencies = [
+ "regex",
+ "web-sys",
+ "yew",
+]
+
+[[package]]
 name = "unicode-ident"
 version = "1.0.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1177,13 +1186,4 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.50",
-]
-
-[[package]]
-name = "yew-tutorial"
-version = "0.1.0"
-dependencies = [
- "regex",
- "web-sys",
- "yew",
 ]

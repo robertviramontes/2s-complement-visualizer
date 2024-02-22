@@ -1,5 +1,5 @@
 [package]
-name = "2s-complement-visualizer"
+name = "twos-complement-visualizer"
 version = "0.1.0"
 edition = "2021"
 
